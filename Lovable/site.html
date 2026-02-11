@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Como Perder a Vergonha - eBook Transformador</title>
+  <meta name="description" content="Descubra o método simples e prático que já ajudou centenas de pessoas a superar a timidez e se comunicar com confiança." />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #0b0f1a;
+      --bg-card: #111827;
+      --fg: #e2e8f0;
+      --fg-muted: #94a3b8;
+      --primary: #2dd4bf;
+      --primary-dark: #0d3d38;
+      --primary-glow: rgba(45, 212, 191, 0.25);
+      --border: #1e293b;
+      --destructive: #ef4444;
+      --destructive-bg: rgba(239, 68, 68, 0.05);
+      --destructive-border: rgba(239, 68, 68, 0.2);
+      --radius: 12px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .container--sm {
+      max-width: 640px;
+    }
+    .container--md {
+      max-width: 768px;
+    }
+    .container--lg {
+      max-width: 900px;
+    }
+    .section {
+      padding: 64px 16px;
+    }
+    @media (min-width: 768px) {
+      .section {
+        padding: 96px 16px;
+      }
+    }
+    .text-center {
+      text-align: center;
+    }
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 2.25rem;
+      }
+    }
+    /* ===== BADGE ===== */
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      background: rgba(45, 212, 191, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(45, 212, 191, 0.3);
+    }
+    /* ===== CTA BUTTON ===== */
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 32px;
+      background: var(--primary);
+      color: var(--bg);
+      font-size: 1.125rem;
+      font-weight: 700;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px var(--primary-glow);
+      transition: filter 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .cta-btn:hover {
+      filter: brightness(1.1);
+    }
+    .cta-btn--full {
+      width: 100%;
+      text-align: center;
+    }
+    /* ===== CARD ===== */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .card:hover {
+      border-color: rgba(45, 212, 191, 0.4);
+    }
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 16px;
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(45, 212, 191, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .hero__badge {
+      margin-bottom: 24px;
+    }
+    .hero__title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    @media (min-width: 768px) {
+      .hero__title {
+        font-size: 3.75rem;
+      }
+    }
+    .hero__title span {
+      color: var(--primary);
+    }
+    .hero__subtitle {
+      font-size: 1.125rem;
+      color: var(--fg-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    @media (min-width: 768px) {
+      .hero__subtitle {
+        font-size: 1.25rem;
+      }
+    }
+    .hero__trust {
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+    }
+    /* ===== GRID ===== */
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .grid--2 { grid-template-columns: 1fr; }
+    .grid--3 { grid-template-columns: 1fr; }
+    .grid--4 { grid-template-columns: 1fr; }
+    @media (min-width: 640px) {
+      .grid--2 { grid-template-columns: repeat(2, 1fr); }
+      .grid--3 { grid-template-columns: repeat(2, 1fr); }
+      .grid--4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .grid--3 { grid-template-columns: repeat(3, 1fr); }
+      .grid--4 { grid-template-columns: repeat(4, 1fr); }
+    }
+    /* ===== PAIN CARDS ===== */
+    .pain-card {
+      text-align: center;
+    }
+    .pain-card__emoji {
+      font-size: 2.25rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .pain-card__text {
+      color: var(--fg-muted);
+    }
+    /* ===== BENEFIT CARD ===== */
+    .benefit-card {
+      text-align: center;
+    }
+    .benefit-card__icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(45, 212, 191, 0.1);
+    }
+    .benefit-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--primary);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .benefit-card__title {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .benefit-card__desc {
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+    }
+    /* ===== TOPIC ITEM ===== */
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+    }
+    .topic-item svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--primary);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    /* ===== FOR YOU / NOT FOR YOU ===== */
+    .audience-grid {
+      display: grid;
+      gap: 32px;
+    }
+    @media (min-width: 768px) {
+      .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .audience-box {
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .audience-box--yes {
+      background: rgba(45, 212, 191, 0.05);
+      border: 1px solid rgba(45, 212, 191, 0.3);
+    }
+    .audience-box--no {
+      background: var(--destructive-bg);
+      border: 1px solid var(--destructive-border);
+    }
+    .audience-box__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .audience-box__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .audience-box__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .audience-box__item svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .audience-box--yes .audience-box__item svg {
+      stroke: var(--primary);
+    }
+    .audience-box--no .audience-box__item svg {
+      stroke: var(--destructive);
+    }
+    /* ===== BEFORE/AFTER ===== */
+    .ba-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .ba-cell {
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    .ba-cell--before {
+      background: var(--destructive-bg);
+      border: 1px solid var(--destructive-border);
+      color: var(--fg-muted);
+    }
+    .ba-cell--after {
+      background: rgba(45, 212, 191, 0.05);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      color: var(--primary);
+    }
+    /* ===== PRICING ===== */
+    .pricing {
+      text-align: center;
+    }
+    .pricing__old {
+      font-size: 1.125rem;
+      color: var(--fg-muted);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .pricing__current {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    @media (min-width: 768px) {
+      .pricing__current {
+        font-size: 3.75rem;
+      }
+    }
+    .pricing__sub {
+      color: var(--fg-muted);
+      margin-bottom: 32px;
+    }
+    .pricing__trust {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+    }
+    /* ===== GUARANTEE ===== */
+    .guarantee {
+      max-width: 640px;
+      margin: 0 auto;
+      border-radius: 16px;
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      background: var(--bg-card);
+      padding: 32px;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .guarantee {
+        padding: 48px;
+      }
+    }
+    .guarantee__icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .guarantee__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 768px) {
+      .guarantee__title {
+        font-size: 1.875rem;
+      }
+    }
+    .guarantee__text {
+      color: var(--fg-muted);
+    }
+    /* ===== FAQ / ACCORDION ===== */
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .faq-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--fg);
+      padding: 16px 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .faq-trigger:hover {
+      opacity: 0.9;
+    }
+    .faq-trigger__chevron {
+      width: 16px;
+      height: 16px;
+      stroke: var(--fg-muted);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-trigger__chevron {
+      transform: rotate(180deg);
+    }
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-content__inner {
+      padding: 0 20px 16px;
+      color: var(--fg-muted);
+      font-size: 0.9375rem;
+    }
+    /* ===== FINAL CTA ===== */
+    .final-cta__title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 768px) {
+      .final-cta__title {
+        font-size: 2.25rem;
+      }
+    }
+    .final-cta__sub {
+      color: var(--fg-muted);
+      margin-bottom: 32px;
+    }
+    /* ===== FOOTER ===== */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 16px;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--fg-muted);
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__badge">
+        <span class="badge">📖 eBook Transformador</span>
+      </div>
+      <h1 class="hero__title">
+        Como Perder a Vergonha e Conversar com <span>qualquer pessoa</span>
+      </h1>
+      <p class="hero__subtitle">
+        Descubra o método simples e prático que já ajudou centenas de pessoas a superar a timidez e se comunicar com confiança.
+      </p>
+      <a href="https://pay.kiwify.com.br/4N5kABV" target="_blank" rel="noopener noreferrer" class="cta-btn">
+        🚀 QUERO PERDER A VERGONHA AGORA
+      </a>
+      <p class="hero__trust">Acesso imediato · Garantia de 7 dias · Pagamento seguro</p>
+    </div>
+  </section>
+  <!-- VOCÊ SE IDENTIFICA? -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Você se identifica?</h2>
+      <div class="grid grid--3">
+        <div class="card pain-card">
+          <span class="pain-card__emoji">😰</span>
+          <p class="pain-card__text">Sente o coração acelerar só de pensar em falar em público?</p>
+        </div>
+        <div class="card pain-card">
+          <span class="pain-card__emoji">🫣</span>
+          <p class="pain-card__text">Evita festas, reuniões ou qualquer situação social?</p>
+        </div>
+        <div class="card pain-card">
+          <span class="pain-card__emoji">😶</span>
+          <p class="pain-card__text">Tem medo de ser julgado(a) pelas outras pessoas?</p>
+        </div>
+        <div class="card pain-card">
+          <span class="pain-card__emoji">🤐</span>
+          <p class="pain-card__text">Deixa de dar sua opinião por vergonha?</p>
+        </div>
+        <div class="card pain-card">
+          <span class="pain-card__emoji">😔</span>
+          <p class="pain-card__text">Sente que perde oportunidades por ser tímido(a)?</p>
+        </div>
+        <div class="card pain-card">
+          <span class="pain-card__emoji">🥺</span>
+          <p class="pain-card__text">Gostaria de ser mais confiante, mas não sabe como?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- A SOLUÇÃO -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 class="section-title">A Solução</h2>
+      <p style="color: var(--fg-muted); max-width: 600px; margin: -32px auto 48px;">
+        O eBook "Como Perder a Vergonha" é um guia completo com técnicas práticas para você se libertar da timidez e viver com mais confiança.
+      </p>
+      <div class="grid grid--4">
+        <div class="card benefit-card">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="benefit-card__title">Método simples</h3>
+          <p class="benefit-card__desc">Linguagem clara e direta, sem enrolação</p>
+        </div>
+        <div class="card benefit-card">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22c-4.97 0-9-2.24-9-5v-4"/><path d="M12 22c4.97 0 9-2.24 9-5v-4"/><path d="M12 13c4.97 0 9-2.24 9-5s-4.03-5-9-5-9 2.24-9 5 4.03 5 9 5z"/><line x1="3" y1="13" x2="3" y2="17"/><line x1="21" y1="13" x2="21" y2="17"/></svg>
+          </div>
+          <h3 class="benefit-card__title">Passo a passo prático</h3>
+          <p class="benefit-card__desc">Exercícios que você aplica no mesmo dia</p>
+        </div>
+        <div class="card benefit-card">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="benefit-card__title">Resultados rápidos</h3>
+          <p class="benefit-card__desc">Sinta a diferença já na primeira semana</p>
+        </div>
+        <div class="card benefit-card">
+          <div class="benefit-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="benefit-card__title">Aplicável no dia a dia</h3>
+          <p class="benefit-card__desc">Técnicas para usar em qualquer situação</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- O QUE VOCÊ VAI APRENDER -->
+  <section class="section">
+    <div class="container container--lg">
+      <h2 class="section-title">O que você vai aprender</h2>
+      <div class="grid grid--2">
+        <div class="card topic-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Entender a raiz da sua vergonha e timidez</span>
+        </div>
+        <div class="card topic-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Técnicas para controlar a ansiedade social</span>
+        </div>
+        <div class="card topic-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Como iniciar conversas com desconhecidos</span>
+        </div>
+        <div class="card topic-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Falar em público sem travar</span>
+        </div>
+        <div class="card topic-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Construir autoconfiança genuína</span>
+        </div>
+        <div class="card topic-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Linguagem corporal que transmite segurança</span>
+        </div>
+        <div class="card topic-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Como lidar com o medo de julgamento</span>
+        </div>
+        <div class="card topic-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Criar conexões verdadeiras com as pessoas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PARA QUEM É / NÃO É -->
+  <section class="section">
+    <div class="container container--lg">
+      <div class="audience-grid">
+        <div class="audience-box audience-box--yes">
+          <h3 class="audience-box__title">✅ É para você se...</h3>
+          <ul class="audience-box__list">
+            <li class="audience-box__item">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Quer superar a timidez de vez</span>
+            </li>
+            <li class="audience-box__item">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Está cansado(a) de perder oportunidades</span>
+            </li>
+            <li class="audience-box__item">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Quer se sentir confiante em qualquer situação</span>
+            </li>
+            <li class="audience-box__item">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Busca um método prático e acessível</span>
+            </li>
+          </ul>
+        </div>
+        <div class="audience-box audience-box--no">
+          <h3 class="audience-box__title">❌ Não é para você se...</h3>
+          <ul class="audience-box__list">
+            <li class="audience-box__item">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span>Não está disposto(a) a praticar os exercícios</span>
+            </li>
+            <li class="audience-box__item">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span>Espera resultados sem nenhum esforço</span>
+            </li>
+            <li class="audience-box__item">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span>Não acredita que a mudança é possível</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ANTES VS DEPOIS -->
+  <section class="section">
+    <div class="container container--md">
+      <h2 class="section-title">Antes vs Depois</h2>
+      <div class="ba-row">
+        <div class="ba-cell ba-cell--before">😞 Evita situações sociais</div>
+        <div class="ba-cell ba-cell--after">😄 Participa com confiança</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-cell ba-cell--before">😞 Medo de falar em público</div>
+        <div class="ba-cell ba-cell--after">😄 Se expressa com segurança</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-cell ba-cell--before">😞 Deixa de dar opiniões</div>
+        <div class="ba-cell ba-cell--after">😄 Compartilha ideias sem medo</div>
+      </div>
+      <div class="ba-row">
+        <div class="ba-cell ba-cell--before">😞 Se sente invisível</div>
+        <div class="ba-cell ba-cell--after">😄 É notado(a) e respeitado(a)</div>
+      </div>
+    </div>
+  </section>
+  <!-- PREÇO -->
+  <section class="section">
+    <div class="container container--sm pricing">
+      <span class="badge" style="margin-bottom: 16px;">Oferta por tempo limitado</span>
+      <p class="pricing__old">De R$ 97,00</p>
+      <p class="pricing__current">R$ 29,90</p>
+      <p class="pricing__sub">Pagamento único · Acesso vitalício</p>
+      <a href="https://pay.kiwify.com.br/4N5kABV" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn--full">
+        🛒 COMPRAR AGORA E COMEÇAR HOJE
+      </a>
+      <div class="pricing__trust">
+        <span>🔒 Pagamento seguro</span>
+        <span>⚡ Acesso imediato</span>
+        <span>✅ Garantia 7 dias</span>
+      </div>
+    </div>
+  </section>
+  <!-- GARANTIA -->
+  <section class="section">
+    <div class="container">
+      <div class="guarantee">
+        <span class="guarantee__icon">🛡️</span>
+        <h2 class="guarantee__title">Garantia Incondicional de 7 Dias</h2>
+        <p class="guarantee__text">
+          Se por qualquer motivo você não ficar satisfeito(a) com o eBook, basta enviar um e-mail dentro de 7 dias e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container container--md">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+      <div id="faq-list">
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>O eBook funciona mesmo?</span>
+            <svg class="faq-trigger__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content__inner">Sim! O método é baseado em técnicas comprovadas de psicologia comportamental e já ajudou centenas de pessoas a superarem a timidez.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Em quanto tempo vejo resultados?</span>
+            <svg class="faq-trigger__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content__inner">Muitos leitores relatam mudanças já na primeira semana aplicando os exercícios práticos do eBook.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Preciso de acompanhamento profissional?</span>
+            <svg class="faq-trigger__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content__inner">O eBook é um guia autodidata. Se você sente que precisa de acompanhamento, ele pode ser um excelente complemento à terapia.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>Como recebo o eBook?</span>
+            <svg class="faq-trigger__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content__inner">Imediatamente após a confirmação do pagamento, você recebe o acesso por e-mail para download instantâneo.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <span>E se eu não gostar?</span>
+            <svg class="faq-trigger__chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content__inner">Você tem 7 dias de garantia incondicional. Se não ficar satisfeito(a), devolvemos 100% do seu dinheiro, sem perguntas.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CTA FINAL -->
+  <section class="section text-center">
+    <div class="container container--md">
+      <h2 class="final-cta__title">Pronto para mudar sua vida?</h2>
+      <p class="final-cta__sub">Dê o primeiro passo agora e comece a viver com mais confiança.</p>
+      <a href="https://pay.kiwify.com.br/4N5kABV" target="_blank" rel="noopener noreferrer" class="cta-btn">
+        🚀 QUERO COMEÇAR AGORA
+      </a>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>&copy; 2025 Como Perder a Vergonha. Todos os direitos reservados.</p>
+  </footer>
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const content = item.querySelector('.faq-content');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-content').style.maxHeight = null;
+      });
+      // Open clicked if was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    }
+  </script>
+</body>
+</html>
